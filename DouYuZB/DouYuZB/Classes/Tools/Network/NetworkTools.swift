@@ -21,6 +21,8 @@ class NetworkTools  {
         
         let method = type == .GET ? HTTPMethod.get : HTTPMethod.post
         
+       
+        
         Alamofire.request(URLString, method: method, parameters: parameters).responseJSON { (response) in
                guard let result = response.result.value else{
                 

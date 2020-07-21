@@ -13,6 +13,8 @@ private let kTitileViewH : CGFloat = 40
 class HomeViewController: UIViewController {
 
     
+   
+    
     
     private lazy var pageTitleView : PageTitleView = { [weak self] in
        

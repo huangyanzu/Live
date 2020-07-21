@@ -22,6 +22,8 @@ private let kPrettyCellID = "kPrettyCellID"
 private let kHeaderViewID = "kHeaderViewID"
 
 class RecommendViewController: UIViewController {
+    
+     private lazy var recommendVM : RecommendViewModel = RecommendViewModel()
 
     private lazy var collectionView : UICollectionView = { [weak self] in
         
@@ -61,9 +63,7 @@ class RecommendViewController: UIViewController {
         
         setupUI()
         
-        NetworkTools.requestData(type: .GET, URLString: "http://httpbin.org/get") { (result) in
-            print(result)
-        }
+        loadData()
         
         
     }
@@ -130,4 +130,12 @@ extension RecommendViewController:UICollectionViewDataSource,UICollectionViewDel
         return CGSize(width: kItemW, height: kNormalItemH)
     }
     
+}
+
+extension RecommendViewController{
+    private func loadData(){
+        
+       recommendVM.requestData()
+        
+    }
 }
